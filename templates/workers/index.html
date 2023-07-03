@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index - flask 01</title>
+    </head>
+    <body>
+        <h3>Workers</h3>
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th>#</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Acttions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker in workers %}
+                <tr>
+                    <td>{{worker[0]}}</td>
+                    <td>{{worker[3]}}</td>
+                    <td>{{worker[1]}}</td>
+                    <td>{{worker[2]}}</td>
+                    <td>
+                        <a href="/edit/{{worker[0]}}">Edit</a>
+                        | 
+                        <a href="/destroy/{{worker[0]}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            <br>
+            <br>
+            <a href="/create"><button>Add new</button></a>
+    </body>
+</html>

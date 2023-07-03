@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Edit</title>
+    </head>
+    <body>
+        <p>Edition form</p>
+        {% for worker in workers %}
+        {{ worker[0] }}
+        {{ worker[1] }}
+        {{ worker[2] }}
+        {{ worker[3] }}
+        <br>
+        <br>
+        <form method="post" action="/update" enctype="multipart/form-data">
+            ID:
+            <input type="text" value="{{ worker[0] }}" name="txtID" id="txtID" readonly>
+            Name:
+            <input type="text" value="{{ worker[1] }}" name="txtName" id="txtName" required>
+            <br>
+            Mail:
+            <input type="email" value="{{ worker[2] }}" name="txtMail" id="txtMail" required>
+            <br>
+            Photo:
+            {{ worker[3] }}
+            <input type="file" name="txtPhoto" id="txtPhoto">
+            <br>
+            <br>
+            <input type="submit" value="Save">
+        </form>
+        {% endfor %}
+    </body>
+</html>
